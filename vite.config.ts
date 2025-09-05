@@ -3,19 +3,13 @@ import react from "@vitejs/plugin-react-swc";
 import path from "path";
 import { componentTagger } from "lovable-tagger";
 
-// https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
-  // Load env file based on `mode`
   const env = loadEnv(mode, process.cwd(), '');
-  
   const isProduction = mode === 'production';
-  const isVercel = !!process.env.VERCEL; // Detect if running on Vercel
 
   return {
-    // ✅ Use correct base depending on platform
-    base: isProduction
-      ? (isVercel ? '/' : '/AI-live-editor/')
-      : '/',
+    // ✅ Use relative paths so it works on Vercel root & GitHub Pages
+    base: './',
 
     root: process.cwd(),
     server: {
