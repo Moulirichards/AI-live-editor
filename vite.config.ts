@@ -8,8 +8,11 @@ export default defineConfig(({ mode }) => {
   // Load env file based on `mode` in the current directory and its parent directories
   const env = loadEnv(mode, process.cwd(), '');
   
+  const isProduction = mode === 'production';
+  
   return {
-    base: './', // This ensures assets are loaded correctly in production
+    base: isProduction ? '/AI-live-editor/' : '/',
+    root: process.cwd(),
     server: {
       host: "::",
       port: 8080,
@@ -26,10 +29,14 @@ export default defineConfig(({ mode }) => {
     build: {
       outDir: 'dist',
       assetsDir: 'assets',
-      sourcemap: mode !== 'production',
+      sourcemap: !isProduction,
       emptyOutDir: true,
+      // Ensure consistent hashing of asset names
       rollupOptions: {
         output: {
+          entryFileNames: 'assets/[name].[hash].js',
+          chunkFileNames: 'assets/[name].[hash].js',
+          assetFileNames: 'assets/[name].[hash][extname]',
           manualChunks: {
             react: ['react', 'react-dom', 'react-router-dom'],
             vendor: ['@radix-ui/react-dialog', '@radix-ui/react-dropdown-menu'],
