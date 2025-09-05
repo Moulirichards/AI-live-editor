@@ -5,13 +5,18 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
-  // Load env file based on `mode` in the current directory and its parent directories
+  // Load env file based on `mode`
   const env = loadEnv(mode, process.cwd(), '');
   
   const isProduction = mode === 'production';
-  
+  const isVercel = !!process.env.VERCEL; // Detect if running on Vercel
+
   return {
-    base: isProduction ? '/AI-live-editor/' : '/',
+    // ✅ Use correct base depending on platform
+    base: isProduction
+      ? (isVercel ? '/' : '/AI-live-editor/')
+      : '/',
+
     root: process.cwd(),
     server: {
       host: "::",
@@ -31,7 +36,6 @@ export default defineConfig(({ mode }) => {
       assetsDir: 'assets',
       sourcemap: !isProduction,
       emptyOutDir: true,
-      // Ensure consistent hashing of asset names
       rollupOptions: {
         output: {
           entryFileNames: 'assets/[name].[hash].js',
