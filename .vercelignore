@@ -1,0 +1,34 @@
+# Dependency directories
+node_modules/
+
+# Build output
+.next
+out
+
+# Debug logs
+yarn-debug.log*
+yarn-error.log*
+npm-debug.log*
+
+# Local env files
+.env
+.env.local
+.env.*.local
+
+# IDE and editor files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db

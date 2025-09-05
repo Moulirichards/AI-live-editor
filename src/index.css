@@ -1,0 +1,233 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Professional Editor Design System - Modern Blue-Purple Theme */
+
+@layer base {
+  :root {
+    /* Base Colors */
+    --background: 252 100% 99%;
+    --foreground: 222 84% 5%;
+
+    /* Surface Colors */
+    --card: 0 0% 100%;
+    --card-foreground: 222 84% 5%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 84% 5%;
+
+    /* Brand Colors - Professional Blue-Purple */
+    --primary: 236 72% 59%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 238 74% 55%;
+    --primary-glow: 235 70% 85%;
+
+    /* Secondary - Elegant Purple */
+    --secondary: 267 57% 78%;
+    --secondary-foreground: 0 0% 100%;
+    --secondary-hover: 269 59% 74%;
+
+    /* Accent - Vibrant Gradient */
+    --accent: 250 90% 88%;
+    --accent-foreground: 236 72% 59%;
+
+    /* Neutral Tones */
+    --muted: 240 5% 96%;
+    --muted-foreground: 240 4% 46%;
+    
+    --border: 240 6% 90%;
+    --input: 240 6% 90%;
+    --ring: 236 72% 59%;
+
+    /* Semantic Colors */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --success: 142 71% 45%;
+    --success-foreground: 0 0% 100%;
+    
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+
+    /* Design Tokens */
+    --radius: 0.75rem;
+
+    /* Editor Specific */
+    --editor-bg: 252 100% 99%;
+    --editor-border: 240 6% 92%;
+    --editor-selection: 236 72% 59% / 0.1;
+    
+    /* Chat Panel */
+    --chat-bg: 248 100% 98%;
+    --chat-border: 240 6% 88%;
+    
+    /* Floating UI */
+    --floating-bg: 0 0% 100%;
+    --floating-shadow: 236 72% 59% / 0.12;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(236 72% 59%), hsl(267 57% 78%));
+    --gradient-subtle: linear-gradient(180deg, hsl(252 100% 99%), hsl(248 100% 98%));
+    --gradient-glow: radial-gradient(circle at center, hsl(235 70% 85% / 0.3), transparent 70%);
+
+    /* Shadows */
+    --shadow-sm: 0 2px 4px hsl(236 72% 59% / 0.06);
+    --shadow-md: 0 4px 12px hsl(236 72% 59% / 0.1);
+    --shadow-lg: 0 8px 24px hsl(236 72% 59% / 0.12);
+    --shadow-floating: 0 12px 32px hsl(236 72% 59% / 0.15);
+
+    /* Animations */
+    --transition-fast: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  .dark {
+    /* Base Colors */
+    --background: 222 47% 6%;
+    --foreground: 210 40% 95%;
+
+    /* Surface Colors */
+    --card: 222 47% 8%;
+    --card-foreground: 210 40% 95%;
+    
+    --popover: 222 47% 8%;
+    --popover-foreground: 210 40% 95%;
+
+    /* Brand Colors - Enhanced for dark */
+    --primary: 236 72% 65%;
+    --primary-foreground: 222 47% 6%;
+    --primary-hover: 238 74% 61%;
+    --primary-glow: 235 70% 35%;
+
+    /* Secondary */
+    --secondary: 267 57% 65%;
+    --secondary-foreground: 222 47% 6%;
+    --secondary-hover: 269 59% 61%;
+
+    /* Accent */
+    --accent: 250 90% 35%;
+    --accent-foreground: 236 72% 85%;
+
+    /* Neutral Tones */
+    --muted: 217 33% 15%;
+    --muted-foreground: 215 20% 65%;
+    
+    --border: 217 33% 17%;
+    --input: 217 33% 17%;
+    --ring: 236 72% 65%;
+
+    /* Semantic Colors */
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 95%;
+    
+    --success: 142 71% 35%;
+    --success-foreground: 210 40% 95%;
+    
+    --warning: 38 92% 40%;
+    --warning-foreground: 210 40% 95%;
+
+    /* Editor Specific */
+    --editor-bg: 222 47% 7%;
+    --editor-border: 217 33% 18%;
+    --editor-selection: 236 72% 65% / 0.15;
+    
+    /* Chat Panel */
+    --chat-bg: 222 47% 9%;
+    --chat-border: 217 33% 20%;
+    
+    /* Floating UI */
+    --floating-bg: 222 47% 10%;
+    --floating-shadow: 236 72% 65% / 0.2;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(236 72% 65%), hsl(267 57% 65%));
+    --gradient-subtle: linear-gradient(180deg, hsl(222 47% 7%), hsl(222 47% 9%));
+    --gradient-glow: radial-gradient(circle at center, hsl(235 70% 35% / 0.3), transparent 70%);
+
+    /* Shadows */
+    --shadow-sm: 0 2px 4px hsl(0 0% 0% / 0.3);
+    --shadow-md: 0 4px 12px hsl(0 0% 0% / 0.4);
+    --shadow-lg: 0 8px 24px hsl(0 0% 0% / 0.5);
+    --shadow-floating: 0 12px 32px hsl(0 0% 0% / 0.6);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  /* Editor Styles */
+  .prose {
+    @apply text-foreground max-w-none;
+  }
+
+  .prose p {
+    @apply text-foreground leading-relaxed mb-4;
+  }
+
+  .prose h1 {
+    @apply text-2xl font-bold text-foreground mb-4;
+  }
+
+  .prose h2 {
+    @apply text-xl font-semibold text-foreground mb-3;
+  }
+
+  .prose h3 {
+    @apply text-lg font-medium text-foreground mb-3;
+  }
+
+  /* Tiptap Editor Styles */
+  .ProseMirror {
+    @apply outline-none prose prose-lg max-w-none min-h-[500px] p-6;
+  }
+
+  .ProseMirror p.is-editor-empty:first-child::before {
+    content: attr(data-placeholder);
+    @apply text-muted-foreground pointer-events-none float-left h-0;
+  }
+
+  /* Selection styles */
+  .ProseMirror ::selection {
+    @apply bg-primary/20;
+  }
+
+  /* Floating menu animations */
+  .floating-menu {
+    animation: fadeInScale 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  @keyframes fadeInScale {
+    from {
+      opacity: 0;
+      transform: scale(0.95) translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+  }
+
+  /* Chat animations */
+  .chat-message {
+    animation: slideInRight 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  @keyframes slideInRight {
+    from {
+      opacity: 0;
+      transform: translateX(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+}
